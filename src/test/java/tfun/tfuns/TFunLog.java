@@ -13,6 +13,7 @@ public interface TFunLog {
 
     public default void logWarning(String message) {
         Log.error(message);
+        Gauge.writeMessage(message);
     }
 
 }

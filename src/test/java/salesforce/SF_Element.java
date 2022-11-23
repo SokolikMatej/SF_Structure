@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import tfun.TElement;
+import tfun.tExceptions.TFunctionException;
 
 import java.time.Duration;
 
@@ -20,6 +21,7 @@ public class SF_Element implements TElement {
     WebDriver driver;
 
 
+    //TODO: Error handling - element creation and actions
     public SF_Element(WebElement element, String xpath, WebDriverWait wait, WebDriver driver) {
         this.element = element;
         this.xpath = xpath;
@@ -38,10 +40,20 @@ public class SF_Element implements TElement {
     }
 
     @Override
-    public void click() {
-        element.click();
+    public SF_Element click() throws TFunctionException {
+        try {
+            element.click();
+            return this;
+        } catch (Exception e) {
+            throw new TFunctionException("SF_Element click()", e, "Error while click on element with xpath: " + this.xpath);
+        }
     }
 
+    public void waitForLoading() {
+
+    }
+
+    //TODO: Error while creating element if element not present
     @Override
     public Boolean isPresent() {
         return null;

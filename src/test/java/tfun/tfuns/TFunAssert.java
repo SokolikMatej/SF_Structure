@@ -1,5 +1,8 @@
 package tfun.tfuns;
 
+import com.github.javaparser.utils.Log;
+import com.sun.xml.bind.v2.TODO;
+
 public interface TFunAssert {
 
     public enum Relation {
@@ -13,7 +16,14 @@ public interface TFunAssert {
     public default void assertRelation(Object left, Relation relation, Object right) {
         switch (relation) {
             case EQ -> {
-
+                //TODO: Error handling - Asserts
+                if (left instanceof String) {
+                    if (left.toString().equals(right.toString())) {
+                        Log.info("Assert EQ is correct: " + left + " == " + right);
+                    } else {
+                        Log.error("Assert EQ is NOTcorrect " + left + " != " + right);
+                    }
+                }
             }
 
             case LT -> {

@@ -1,16 +1,16 @@
 package tfun;
 
-import org.openqa.selenium.WebDriver;
+import tfun.tExceptions.TElementNotFoundException;
 
 public interface TElementFactory<E extends TElement> {
 
 
-    public E button(String label);
+    public E button(String label) throws TElementNotFoundException;
 
-    public E inputField(String label);
+    public E inputField(String label) throws TElementNotFoundException;
 
-    public E menuItem(String label);
+    public E menuItem(String label) throws TElementNotFoundException;
 
-    public E xpathElement(String xpath);
+    public E xpathElement(String xpath) throws TElementNotFoundException;
 
 }

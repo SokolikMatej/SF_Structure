@@ -16,6 +16,6 @@ public class Driver {
 
     @AfterSuite
     public void tearDownDriver() {
-//        webDriver.close();
+        webDriver.quit();
     }
 }

@@ -1,12 +1,13 @@
 package tfun;
 
 import salesforce.SF_Element;
+import tfun.tExceptions.TFunctionException;
 
 public interface TElement {
     /**
      * Click on element
      */
-    void click();
+    TElement click() throws TFunctionException;
 
     /**
      * Setting text to element. This method also sets text to empty string before setting desired text
@@ -19,7 +20,6 @@ public interface TElement {
 
     /**
      * Hover over element
-     *
      */
     void hover();
 

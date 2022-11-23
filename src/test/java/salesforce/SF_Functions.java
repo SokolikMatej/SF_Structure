@@ -18,7 +18,7 @@ public class SF_Functions implements TFunctions {
 
     }
 
-
+    //TODO: Error handling - Functions
     @Override
     public void navigationToUrl(String url) {
         this.driver.get(url);
