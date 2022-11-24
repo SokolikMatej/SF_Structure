@@ -1,13 +1,13 @@
 package tfun;
 
-import salesforce.SF_Element;
-import tfun.tExceptions.TFunctionException;
+import tfun.tExceptions.TElementActionException;
 
 public interface TElement {
     /**
      * Click on element
      */
-    TElement click() throws TFunctionException;
+    @SuppressWarnings("unused")
+    TElement click() throws TElementActionException;
 
     /**
      * Setting text to element. This method also sets text to empty string before setting desired text
@@ -16,14 +16,18 @@ public interface TElement {
      */
     void setText(String text);
 
+    @SuppressWarnings("unused")
     Boolean isPresent();
 
     /**
      * Hover over element
      */
+    @SuppressWarnings("unused")
     void hover();
 
+    @SuppressWarnings("unused")
     String getValue();
 
+    @SuppressWarnings("unused")
     String getAttribute(String attribute);
 }

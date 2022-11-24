@@ -5,9 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import tfun.TElement;
-import tfun.tExceptions.TFunctionException;
+import tfun.tExceptions.TElementActionException;
 
 import java.time.Duration;
 
@@ -40,15 +39,16 @@ public class SF_Element implements TElement {
     }
 
     @Override
-    public SF_Element click() throws TFunctionException {
+    public SF_Element click() throws TElementActionException {
         try {
             element.click();
             return this;
         } catch (Exception e) {
-            throw new TFunctionException("SF_Element click()", e, "Error while click on element with xpath: " + this.xpath);
+            throw new TElementActionException(element, xpath, "SF_Element.click()", e);
         }
     }
 
+    @SuppressWarnings("unused")
     public void waitForLoading() {
 
     }
